@@ -1,3 +1,11 @@
+streamlit
+langchain
+langchain-community
+langchain-core
+chromadb
+pypdf
+fastembed
+
 # Web Framework
 streamlit>=1.31.0
 
