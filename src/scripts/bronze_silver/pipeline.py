@@ -34,6 +34,8 @@ PIPELINE: list[str] = [
     "sea_level.py",
     "vendange.py"
     "glacier_wgms.py",
+    "sea_level.py",
+    "vendange.py"
 ]
 
 
