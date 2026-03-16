@@ -31,6 +31,7 @@ PIPELINE: list[str] = [
     "incendies.py",
     "swi.py",
     "cata.py",
+    "glacier_wgms.py",
 ]
 
 

@@ -1,0 +1,101 @@
+Conventions,G,BADC-CSV,1
+title,G,Mountain glacier cumulative mass balance
+last_revised_date,G,2026-01-20
+date_valid,G,2026-01-20
+feature_type,G,area average
+creator,G,WMO
+source,G,Produced by climind version 1.3.0
+observation_station,G,derived data
+location,G,90.,-180.,-90.,180.
+activity,G,WMO
+history,G,"Data set created from file ['mb_ref.csv'] downloaded from ['http://wgms.ch/data/faq/mb_ref.csv'] at ['2026-01-14 14:46:29']"
+reference,G,"WGMS (2017, updated, and earlier reports): Global Glacier Change Bulletin No. 2 (2014-2015). Zemp, M., Nussbaumer, S. U., Gärtner-Roer, I., Huber, J., Machguth, H., Paul, F., and Hoelzle, M. (eds.), ICSU(WDS)/IUGG(IACS)/UNEP/UNESCO/WMO, World Glacier Monitoring Service, Zurich, Switzerland, 244 pp., based on database version: doi:10.5904/wgms-fog-2018-11."
+rights,G,TBD
+comments,G,Data produced by climind version 1.3.0
+comments,G,Format description https://help.ceda.ac.uk/article/105-badc-csv
+comments,G,"Original data acknowledgement: "
+long_name,time,time,days since 1800-01-01 00:00:00.0
+type,time,int
+long_name,year,year,1
+type,year,int
+long_name,data,glacier,mwe
+type,data,float
+coordinate_variable,time,t
+data
+time,year,data
+54786,1950,5.3840
+55151,1951,5.0390
+55516,1952,4.4790
+55882,1953,3.9170
+56247,1954,3.4970
+56612,1955,3.8700
+56977,1956,3.7090
+57343,1957,3.6160
+57708,1958,2.7470
+58073,1959,2.2800
+58438,1960,1.7030
+58804,1961,1.2670
+59169,1962,1.0640
+59534,1963,0.7120
+59899,1964,1.0310
+60265,1965,1.1890
+60630,1966,0.9640
+60995,1967,0.8450
+61360,1968,0.7750
+61726,1969,0.2870
+62091,1970,0.0000
+62456,1971,-0.2310
+62821,1972,-0.5100
+63187,1973,-0.6860
+63552,1974,-0.8730
+63917,1975,-1.0980
+64282,1976,-1.2800
+64648,1977,-1.5360
+65013,1978,-1.7240
+65378,1979,-2.1400
+65743,1980,-2.2630
+66109,1981,-2.4540
+66474,1982,-2.9410
+66839,1983,-2.8130
+67204,1984,-3.0720
+67570,1985,-3.3790
+67935,1986,-3.8600
+68300,1987,-3.7630
+68665,1988,-3.8370
+69031,1989,-4.0660
+69396,1990,-4.5500
+69761,1991,-5.0530
+70126,1992,-5.1690
+70492,1993,-5.3010
+70857,1994,-5.8320
+71222,1995,-6.2910
+71587,1996,-6.7630
+71953,1997,-7.4030
+72318,1998,-8.1250
+72683,1999,-8.8230
+73048,2000,-9.1820
+73414,2001,-9.4520
+73779,2002,-9.8800
+74144,2003,-10.4040
+74509,2004,-11.1360
+74875,2005,-11.9520
+75240,2006,-12.6660
+75605,2007,-13.2060
+75970,2008,-13.5800
+76336,2009,-14.0320
+76701,2010,-14.9040
+77066,2011,-15.6410
+77431,2012,-16.3650
+77797,2013,-17.0770
+78162,2014,-17.7860
+78527,2015,-18.5910
+78892,2016,-19.5780
+79258,2017,-20.2440
+79623,2018,-21.1800
+79988,2019,-22.1730
+80353,2020,-23.0560
+80719,2021,-23.7330
+81084,2022,-24.8220
+81449,2023,-26.0750
+81814,2024,-27.3730
+end data
