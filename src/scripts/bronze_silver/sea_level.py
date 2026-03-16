@@ -21,7 +21,7 @@ def main():
         df = ds.to_dataframe().reset_index()
         print(df.head())  # Check the structure; adjust column names as needed
 
-        parquet_path = silver_dir / (nc_file.stem + ".parquet")
+        parquet_path = silver_dir / ("sea_level.parquet")
         df.to_parquet(parquet_path, index=False)
 
 if __name__ == "__main__":
