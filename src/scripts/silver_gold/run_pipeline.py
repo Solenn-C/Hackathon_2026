@@ -40,6 +40,8 @@ SILVER_TO_GOLD_COPIES: list[str] = [
     "incendies.parquet",
     "cata.parquet",
     "glacier_wgms.parquet",
+    "sea_level.parquet",
+    "vendange_europe.parquet",
 ]
 
 
