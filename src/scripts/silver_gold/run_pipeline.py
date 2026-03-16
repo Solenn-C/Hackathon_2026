@@ -38,6 +38,7 @@ SILVER_TO_GOLD_COPIES: list[str] = [
     "ges_citepa.parquet",
     "empreinte_carbone.parquet",
     "incendies.parquet",
+    "cata.parquet",
 ]
 
 
@@ -69,6 +70,7 @@ PIPELINE: list[Step] = [
     Step("empreinte_carbone", _b("empreinte_carbone.py"), stage="bronze"),
     Step("incendies", _b("incendies.py"), stage="bronze"),
     Step("swi", _b("swi.py"), stage="bronze"),
+    Step("cata", _b("cata.py"), stage="bronze"),
     # Silver → Gold
     Step(
         "silver_to_gold",
