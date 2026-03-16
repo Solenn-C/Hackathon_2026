@@ -68,12 +68,19 @@ PIPELINE: list[Step] = [
     Step("ges_citepa", _b("ges_citepa.py"), stage="bronze"),
     Step("empreinte_carbone", _b("empreinte_carbone.py"), stage="bronze"),
     Step("incendies", _b("incendies.py"), stage="bronze"),
+    Step("swi", _b("swi.py"), stage="bronze"),
     # Silver → Gold
     Step(
         "silver_to_gold",
         _g("silver_to_gold.py"),
         stage="gold",
         deps=["tn_metropole", "tx_metropole", "rr_metropole"],
+    ),
+    Step(
+        "swi_par_departement",
+        _g("swi_par_departement.py"),
+        stage="gold",
+        deps=["swi"],
     ),
 ]
 
