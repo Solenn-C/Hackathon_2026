@@ -55,7 +55,7 @@ def load_rag_pipeline():
     retriever = vectorstore.as_retriever(search_kwargs={"k": 3})
 
     # 2. Initialiser le LLM local
-    llm = Ollama(model="mistral")
+    llm = Ollama(model="llama3")
 
     # 3. Créer le prompt pour contraindre les réponses
     system_prompt = (
