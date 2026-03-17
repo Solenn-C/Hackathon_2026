@@ -64,28 +64,17 @@ def get_projections(scenario: str = "intermediaire"):
 
 @app.get("/map_projections")
 def get_map_projections(scenario: str, year: int):
+    import random
     idx = projections_data["projections"]["years"].index(year)
     temp_val = projections_data["projections"][scenario][idx]
 
-    # Simulation de points par zones d'impact basées sur les poids [cite: 1]
-    points = [
-        {"name": "Zone Littorale", "lat": 43.29, "lon": 5.37, "type": "sea_level"},
-        {
-            "name": "Massif Forestier",
-            "lat": 44.83,
-            "lon": -0.57,
-            "type": "impact_incendies",
-        },
-        {"name": "Plaine Agricole", "lat": 47.90, "lon": 1.90, "type": "swi_score"},
-        {"name": "Bassin Urbain", "lat": 48.85, "lon": 2.35, "type": "temp_moyenne"},
+    base_score = min(100, (temp_val / 20) * 100)
+    dep_codes = [str(i).zfill(2) for i in range(1, 96)] + ["971", "972", "973", "974", "976"]
+
+    return [
+        {"code_dep": dep, "score": round(min(100, base_score * (1 + random.uniform(-0.1, 0.1))), 1)}
+        for dep in dep_codes
     ]
-
-    for p in points:
-        # On pondère le score local par le poids de la variable concernée
-        poids_local = weights_dict.get(p["type"], 0.1)
-        p["score"] = round(min(100, (temp_val / 20) * 100 * (1 + poids_local)), 1)
-
-    return points
 
 
 if __name__ == "__main__":

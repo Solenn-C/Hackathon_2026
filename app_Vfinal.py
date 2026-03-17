@@ -47,13 +47,12 @@ geojson_france = load_geojson()
 
 
 def get_map_data(value, column_name):
-    dep_codes = [str(i).zfill(2) for i in range(1, 96)] + [
-        "971",
-        "972",
-        "973",
-        "974",
-        "976",
-    ]
+    if geojson_france:
+        dep_codes = [f["properties"]["code"] for f in geojson_france["features"]]
+    else:
+        dep_codes = [str(i).zfill(2) for i in range(1, 96)] + [
+            "971", "972", "973", "974", "976",
+        ]
     return pd.DataFrame(
         {
             "code_dep": dep_codes,
@@ -379,11 +378,11 @@ with tab3:
             fig_proj = px.choropleth_mapbox(
                 df_m,
                 geojson=geojson_france,
-                locations="code_dep",  # Assurez-vous que votre API renvoie 'code_dep'
+                locations="code_dep",
                 featureidkey="properties.code",
-                color="score",  # Le score de risque calculé par l'IA
+                color="score",
                 color_continuous_scale="OrRd",
-                range_color=(0, 100),
+                range_color=(df_m["score"].min(), df_m["score"].max()),
                 mapbox_style="carto-positron",
                 zoom=4.8,
                 center={"lat": 46.2, "lon": 2.2},
@@ -393,7 +392,8 @@ with tab3:
             fig_proj.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0}, height=600)
             st.plotly_chart(fig_proj, use_container_width=True)
 
-        except Exception:
+        except Exception as e:
+            st.caption(e)
             # Simulation visuelle si le backend ne répond pas (pour le Hackathon)
             st.caption("Affichage d'une simulation (Backend non détecté)")
             mock_data = get_map_data(65.0, "score")  # Utilise votre fonction existante
