@@ -6,14 +6,7 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "black>=26.3.1",
-<<<<<<< HEAD
-<<<<<<< HEAD
     "geopandas>=1.1.3",
-=======
->>>>>>> cdc5f45 (data : sea level gold)
-=======
-    "geopandas>=1.1.3",
->>>>>>> 1010667 (data : ajout sea_level & vendange à la pipeline bronze)
     "h5netcdf>=1.8.1",
     "h5py>=3.16.0",
     "ipykernel>=7.2.0",
