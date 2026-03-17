@@ -65,14 +65,24 @@ def get_projections(scenario: str = "intermediaire"):
 @app.get("/map_projections")
 def get_map_projections(scenario: str, year: int):
     import random
+
     idx = projections_data["projections"]["years"].index(year)
     temp_val = projections_data["projections"][scenario][idx]
 
     base_score = min(100, (temp_val / 20) * 100)
-    dep_codes = [str(i).zfill(2) for i in range(1, 96)] + ["971", "972", "973", "974", "976"]
+    dep_codes = [str(i).zfill(2) for i in range(1, 96)] + [
+        "971",
+        "972",
+        "973",
+        "974",
+        "976",
+    ]
 
     return [
-        {"code_dep": dep, "score": round(min(100, base_score * (1 + random.uniform(-0.1, 0.1))), 1)}
+        {
+            "code_dep": dep,
+            "score": round(min(100, base_score * (1 + random.uniform(-0.1, 0.1))), 1),
+        }
         for dep in dep_codes
     ]
 

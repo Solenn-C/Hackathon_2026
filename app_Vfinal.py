@@ -51,7 +51,11 @@ def get_map_data(value, column_name):
         dep_codes = [f["properties"]["code"] for f in geojson_france["features"]]
     else:
         dep_codes = [str(i).zfill(2) for i in range(1, 96)] + [
-            "971", "972", "973", "974", "976",
+            "971",
+            "972",
+            "973",
+            "974",
+            "976",
         ]
     return pd.DataFrame(
         {
