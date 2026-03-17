@@ -1,15 +1,15 @@
 # Import modules
 from pathlib import Path
+
 import xarray as xr
-import pandas as pd
 
 bronze_dir = Path("data/bronze/copernicus")
 silver_dir = Path("data/silver")
 
+
 def main():
 
     silver_dir.mkdir(parents=True, exist_ok=True)
-    
 
     # Example: process all NetCDF files dropped in bronze
     for nc_file in bronze_dir.glob("*.nc"):
@@ -23,6 +23,7 @@ def main():
 
         parquet_path = silver_dir / ("sea_level.parquet")
         df.to_parquet(parquet_path, index=False)
+
 
 if __name__ == "__main__":
     main()

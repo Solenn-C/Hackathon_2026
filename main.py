@@ -7,7 +7,7 @@ from fastapi import FastAPI, Query
 app = FastAPI()
 
 # Configuration des chemins selon votre environnement
-BASE_PATH = r"C:\Users\Xachi\Documents\Sup_de_Vinci\Mastere_2\Hackathon_2026"
+BASE_PATH = os.getcwd()
 DATA_PATH = os.path.join(BASE_PATH, "data_historique_carte.csv")
 WEIGHTS_PATH = os.path.join(BASE_PATH, "poids_variables_final.csv")
 PROJECTIONS_PATH = os.path.join(BASE_PATH, "climat_data_web.json")
@@ -86,3 +86,9 @@ def get_map_projections(scenario: str, year: int):
         p["score"] = round(min(100, (temp_val / 20) * 100 * (1 + poids_local)), 1)
 
     return points
+
+
+if __name__ == "__main__":
+    import uvicorn
+
+    uvicorn.run(app, host="0.0.0.0", port=8888)
